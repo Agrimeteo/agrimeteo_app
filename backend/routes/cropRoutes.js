@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var cropController = require("../controllers/cropController.js");
+var authMiddleware_js_1 = require("../middlewares/authMiddleware.js");
+var router = (0, express_1.Router)();
+router.use(authMiddleware_js_1.authMiddleware);
+router.post('/', cropController.createCrop);
+router.get('/', cropController.getCrops);
+router.get('/:id', cropController.getCrop);
+router.put('/:id', cropController.updateCrop);
+router.delete('/:id', cropController.deleteCrop);
+exports.default = router;

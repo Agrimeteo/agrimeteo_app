@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var reportController = require("../controllers/reportController.js");
+var authMiddleware_js_1 = require("../middlewares/authMiddleware.js");
+var multer_1 = require("multer");
+var router = (0, express_1.Router)();
+var upload = (0, multer_1.default)({ storage: multer_1.default.memoryStorage() });
+router.use(authMiddleware_js_1.authMiddleware);
+router.post('/', upload.single('image'), reportController.createReport);
+exports.default = router;

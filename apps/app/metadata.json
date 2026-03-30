@@ -1,0 +1,5 @@
+{
+  "name": "AgroSmart",
+  "description": "An agricultural assistant application designed for farmers and beginner farmers to manage crops, receive weather alerts, diagnose plant diseases, and learn farming basics.",
+  "requestFramePermissions": ["camera"]
+}

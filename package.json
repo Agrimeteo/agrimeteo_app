@@ -1,0 +1,20 @@
+{
+  "name": "agrosmart",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "backend"
+  ],
+  "scripts": {
+    "dev:app": "npm --prefix apps/app run dev",
+    "dev:site": "npm --prefix apps/site run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build:app": "npm --prefix apps/app run build",
+    "build:site": "npm --prefix apps/site run build",
+    "build:backend": "npm --prefix backend run build"
+  },
+  "devDependencies": {
+    "vite": "^6.4.1"
+  }
+}
