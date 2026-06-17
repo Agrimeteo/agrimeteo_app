@@ -11,10 +11,13 @@ export interface CropType {
 export interface Crop {
   id: string;
   user_id: string;
+  crop_type_id?: string;
   name: string;
   planting_date: string;
   expected_harvest: string | null;
   status: 'planted' | 'growing' | 'ready' | 'harvested' | 'failed';
+  location?: string | null;
+  area?: number | null;
   crop_types?: CropType | null;
 }
 

@@ -67,19 +67,19 @@ const AdminStats: React.FC = () => {
   const regionalActivity = useMemo(() => buildRegionalActivity(users, crops, reports), [users, crops, reports]);
 
   if (loading) {
-    return <div className="flex-1 overflow-y-auto p-8">Loading analytics...</div>;
+    return <div>Loading analytics...</div>;
   }
 
   return (
-    <div className="flex-1 overflow-y-auto p-8">
+    <div>
       <div className="mb-8">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
           <div>
             <h1 className="mb-2 text-3xl font-black tracking-tight text-slate-900">Analytics Overview</h1>
             <p className="text-slate-500">Live operational analytics from users, crops, and plant reports.</p>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex rounded-xl bg-white p-1 shadow-sm">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex flex-wrap rounded-xl bg-white p-1 shadow-sm">
               {['7D', '30D', '6M', '1Y'].map((period) => (
                 <button
                   key={period}
@@ -145,7 +145,7 @@ const AdminStats: React.FC = () => {
         </div>
       </div>
 
-      <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div className="mb-8 grid grid-cols-1 gap-8 xl:grid-cols-2">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <div className="mb-8">
             <h3 className="text-lg font-bold text-slate-900">Activity Timeline</h3>
@@ -185,7 +185,7 @@ const AdminStats: React.FC = () => {
         </div>
       </div>
 
-      <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div className="mb-8 grid grid-cols-1 gap-8 xl:grid-cols-2">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <div className="mb-8">
             <h3 className="text-lg font-bold text-slate-900">Top Crop Types</h3>

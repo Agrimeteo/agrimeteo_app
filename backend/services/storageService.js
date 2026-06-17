@@ -16,6 +16,24 @@ const generateFilename = (originalName) => {
   return `${timestamp}-${random}-${originalName}`;
 };
 
+const ensureBucketExists = async () => {
+  const { data: existingBucket, error: bucketLookupError } = await supabaseServiceClient.storage.getBucket(BUCKET);
+
+  if (!bucketLookupError && existingBucket) {
+    return;
+  }
+
+  const { error: createBucketError } = await supabaseServiceClient.storage.createBucket(BUCKET, {
+    public: true,
+    fileSizeLimit: 5 * 1024 * 1024,
+    allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+  });
+
+  if (createBucketError && !/already exists/i.test(createBucketError.message)) {
+    throw new Error(`Storage bucket setup failed: ${createBucketError.message}`);
+  }
+};
+
 const uploadPlantImage = async (file, userId) => {
   if (!supabaseServiceClient) {
     throw new Error('Supabase service client is not configured');
@@ -24,6 +42,8 @@ const uploadPlantImage = async (file, userId) => {
   if (!isValidImage(file)) {
     throw new Error('Invalid image file. Must be JPEG/PNG/WEBP, max 5MB');
   }
+
+  await ensureBucketExists();
 
   const sanitizedOriginalName = file.originalname.replace(/\s+/g, '-');
   const filename = `${userId}/${generateFilename(sanitizedOriginalName)}`;

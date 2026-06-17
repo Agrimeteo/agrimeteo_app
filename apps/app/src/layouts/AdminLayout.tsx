@@ -1,143 +1,164 @@
-import React, { useState } from 'react';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, ChevronLeft, ChevronRight, Bell } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { Bell, Menu } from 'lucide-react';
+import InstallAppPrompt from '../components/InstallAppPrompt';
+import { useAuth } from '../context/AuthContext';
+import { usePermissions } from '../context/PermissionsContext';
 
 const AdminLayout: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [globalSearch, setGlobalSearch] = useState('');
+  const { logout } = useAuth();
+  const { hasPermission, loading } = usePermissions();
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const menuItems = [
     { path: '/admin/dashboard', label: 'Dashboard', icon: 'dashboard' },
-    { path: '/admin/users', label: 'Users', icon: 'group' },
-    { path: '/admin/crops', label: 'Crops', icon: 'potted_plant' },
-    { path: '/admin/reports', label: 'Reports', icon: 'description' },
+    { path: '/admin/users', label: 'Users', icon: 'group', visible: loading || hasPermission('users.read') },
+    { path: '/admin/crops', label: 'Crops', icon: 'potted_plant', visible: loading || hasPermission('crops.read') },
+    { path: '/admin/reports', label: 'Reports', icon: 'description', visible: loading || hasPermission('reports.read') },
+    { path: '/admin/audit', label: 'Audit Logs', icon: 'history' },
+    { path: '/admin/permissions', label: 'Permissions', icon: 'lock', visible: loading || hasPermission('permissions.read') },
+    { path: '/admin/community', label: 'Community', icon: 'forum' },
     { path: '/admin/weather', label: 'Weather', icon: 'cloud_sync' },
     { path: '/admin/stats', label: 'Stats', icon: 'query_stats' },
-    { path: '/admin/settings', label: 'Settings', icon: 'settings' },
-  ];
+    { path: '/admin/settings', label: 'Settings', icon: 'settings', visible: loading || hasPermission('settings.read') },
+  ].filter((item) => item.visible !== false);
 
-  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  useEffect(() => {
+    setGlobalSearch(searchParams.get('q') || '');
+  }, [searchParams]);
+
+  const updateGlobalSearch = (value: string) => {
+    setGlobalSearch(value);
+    const params = new URLSearchParams(searchParams);
+
+    if (value) {
+      params.set('q', value);
+    } else {
+      params.delete('q');
+    }
+
+    setSearchParams(params);
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/admin-login', { replace: true });
+  };
 
   return (
     <div className="flex h-screen overflow-hidden bg-[#f6f8f8]">
-      {/* Mobile Overlay */}
+      <InstallAppPrompt />
+
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 z-40 bg-black/50 md:hidden"
-          onClick={toggleMobileMenu}
-        />
+        <div className="fixed inset-0 z-40 bg-black/50 md:hidden" onClick={() => setIsMobileMenuOpen(false)} />
       )}
 
-      {/* Sidebar */}
-      <aside className={`
-        fixed inset-y-0 left-0 z-50 bg-white border-r border-primary/10 flex flex-col w-64 md:w-${isCollapsed ? '16' : '64'} transition-all duration-300 h-screen md:h-auto
-        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
-      `}>
-        {/* Logo */}
-        <div className="p-4 flex items-center gap-3 border-b border-primary/10 flex-shrink-0">
-          <div className="w-10 h-10 bg-[#13515e] rounded-lg flex items-center justify-center text-white">
+      <aside
+        className={[
+          'fixed inset-y-0 left-0 z-50 flex h-screen w-64 flex-col border-r border-primary/10 bg-white transition-all duration-300',
+          isCollapsed ? 'md:w-20' : 'md:w-64',
+          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
+        ].join(' ')}
+      >
+        <div className="flex items-center gap-3 border-b border-primary/10 p-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#13515e] text-white">
             <span className="material-symbols-outlined text-sm">agriculture</span>
           </div>
-          <div className={!isCollapsed ? "flex-1 min-w-0" : "hidden"}>
-            <h1 className="font-bold text-lg text-[#13515e] truncate">Agrimétéo</h1>
-            <p className="text-xs text-slate-500 truncate">Admin Control</p>
-          </div>
+          {!isCollapsed && (
+            <div className="min-w-0 flex-1">
+              <h1 className="truncate text-lg font-bold text-[#13515e]">Agrimeteo</h1>
+              <p className="truncate text-xs text-slate-500">Admin Control</p>
+            </div>
+          )}
         </div>
 
-        {/* Nav */}
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           {menuItems.map((item) => (
             <button
               key={item.path}
               onClick={() => {
                 navigate(item.path);
-                toggleMobileMenu();
+                setIsMobileMenuOpen(false);
               }}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all group mb-2
-                ${location.pathname === item.path
-                  ? 'bg-[#13515e]/10 text-[#13515e] border-r-4 border-[#13515e]'
-                  : 'text-slate-600 hover:bg-[#13515e]/5 hover:text-[#13515e]'
-                } ${isCollapsed ? 'justify-center px-2' : ''}`}
+              className={[
+                'group mb-2 flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all',
+                location.pathname === item.path
+                  ? 'border-r-4 border-[#13515e] bg-[#13515e]/10 text-[#13515e]'
+                  : 'text-slate-600 hover:bg-[#13515e]/5 hover:text-[#13515e]',
+                isCollapsed ? 'justify-center px-2' : '',
+              ].join(' ')}
             >
-              <span className="material-symbols-outlined text-lg flex-shrink-0">
-                {item.icon}
-              </span>
-              <span className={`font-medium text-sm ${isCollapsed ? 'hidden' : ''}`}>
-                {item.label}
-              </span>
+              <span className="material-symbols-outlined flex-shrink-0 text-lg">{item.icon}</span>
+              {!isCollapsed && <span className="text-sm font-medium">{item.label}</span>}
             </button>
           ))}
         </nav>
 
-        {/* Status & Login */}
-        <div className="p-4 border-t border-primary/10 flex-shrink-0 space-y-3">
-          <div className="bg-[#13515e]/5 rounded-xl p-3">
-            <p className={`text-xs font-semibold text-[#13515e] uppercase mb-1 ${isCollapsed ? 'hidden' : ''}`}>Status</p>
+        <div className="space-y-3 border-t border-primary/10 p-4">
+          <div className="rounded-xl bg-[#13515e]/5 p-3">
+            {!isCollapsed && <p className="mb-1 text-xs font-semibold uppercase text-[#13515e]">Status</p>}
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#71B280]"></div>
-              <span className={`text-xs text-slate-600 ${isCollapsed ? 'hidden' : ''}`}>Operational</span>
+              <div className="h-2 w-2 rounded-full bg-[#71B280]" />
+              {!isCollapsed && <span className="text-xs text-slate-600">Operational</span>}
             </div>
           </div>
-          
-          <button 
-            onClick={() => navigate('/admin-login')}
-            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all bg-[#13515e] text-white hover:bg-[#13515e]/90 ${isCollapsed ? 'justify-center px-2' : ''}`}
+
+          <button
+            onClick={() => void handleLogout()}
+            className={[
+              'flex w-full items-center gap-3 rounded-lg bg-[#13515e] px-3 py-2.5 text-white transition-all hover:bg-[#13515e]/90',
+              isCollapsed ? 'justify-center px-2' : '',
+            ].join(' ')}
           >
-            <span className="material-symbols-outlined text-lg flex-shrink-0">login</span>
-            <span className={`font-medium text-sm ${isCollapsed ? 'hidden' : ''}`}>Login</span>
+            <span className="material-symbols-outlined flex-shrink-0 text-lg">logout</span>
+            {!isCollapsed && <span className="text-sm font-medium">Logout</span>}
           </button>
         </div>
       </aside>
 
-      {/* Main */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <header className="h-16 bg-white border-b border-primary/10 flex items-center justify-between px-6 md:px-8 z-10 shrink-0 relative">
-          {/* Mobile Hamburger */}
-          <button className="md:hidden p-2 rounded-lg hover:bg-slate-100" onClick={toggleMobileMenu}>
+      <div className={`flex min-w-0 flex-1 flex-col overflow-hidden transition-[padding] duration-300 ${isCollapsed ? 'md:pl-20' : 'md:pl-64'}`}>
+        <header className="relative z-10 flex h-16 shrink-0 items-center justify-between border-b border-primary/10 bg-white px-4 sm:px-6 md:px-8">
+          <button className="rounded-lg p-2 hover:bg-slate-100 md:hidden" onClick={() => setIsMobileMenuOpen((current) => !current)}>
             <Menu size={20} className="text-slate-700" />
           </button>
 
-          {/* Desktop Toggle */}
-          <button 
-            className="hidden md:block p-2 rounded-lg hover:bg-slate-100 transition-colors"
-            onClick={toggleSidebar}
-          >
-            <span className={`material-symbols-outlined transition-transform ${isCollapsed ? 'rotate-180' : ''}`}>
-              chevron_left
-            </span>
+          <button className="hidden rounded-lg p-2 transition-colors hover:bg-slate-100 md:block" onClick={() => setIsCollapsed((current) => !current)}>
+            <span className={`material-symbols-outlined transition-transform ${isCollapsed ? 'rotate-180' : ''}`}>chevron_left</span>
           </button>
 
-          {/* Search */}
-          <div className="flex-1 max-w-md mx-4 hidden lg:block">
+          <div className="mx-4 hidden max-w-md flex-1 lg:block">
             <div className="relative">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">search</span>
               <input
-                className="w-full pl-10 pr-4 py-2 bg-[#f8f9fa] border border-slate-200 rounded-lg focus:ring-2 focus:ring-[#13515e]/20 text-sm outline-none transition-all"
+                className="w-full rounded-lg border border-slate-200 bg-[#f8f9fa] py-2 pl-10 pr-4 text-sm outline-none transition-all focus:ring-2 focus:ring-[#13515e]/20"
                 placeholder="Search data, reports, users..."
+                value={globalSearch}
+                onChange={(event) => updateGlobalSearch(event.target.value)}
               />
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="flex items-center gap-3">
-            <button className="relative p-2 rounded-lg hover:bg-slate-100 transition-colors">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button className="relative rounded-lg p-2 transition-colors hover:bg-slate-100">
               <Bell size={20} className="text-slate-600" />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+              <span className="absolute -right-1 -top-1 h-3 w-3 animate-ping rounded-full bg-red-500" />
+              <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500" />
             </button>
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#13515e] to-[#1a5f6e] flex items-center justify-center text-white font-semibold shadow-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#13515e] to-[#1a5f6e] font-semibold text-white shadow-lg">
               A
             </div>
           </div>
         </header>
 
-        {/* Content */}
-        <main className={`flex-1 overflow-auto p-6 md:p-8 ${isCollapsed ? 'lg:ml-20' : ''}`}>
-          <Outlet />
+        <main className="flex-1 overflow-auto">
+          <div className="mx-auto w-full max-w-[1600px] px-4 py-6 sm:px-6 lg:px-8 xl:px-10">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

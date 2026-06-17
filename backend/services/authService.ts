@@ -4,15 +4,18 @@ type RegisterData = {
     email: string;
     password: string;
     full_name: string;
-    role?: 'farmer' | 'beginner' | 'admin' | 'user';
+    role?: 'farmer' | 'beginner' | 'admin';
 };
 type LoginData = {
     email: string;
     password: string;
 };
+type RefreshSessionData = {
+    refreshToken: string;
+};
 
 export const register = async (data: RegisterData) => {
-  const profileRole = data.role || 'farmer';
+  const profileRole = data.role ?? null;
 
   const { data: userData, error } = await supabaseClient.auth.signUp({
     email: data.email,
@@ -20,7 +23,7 @@ export const register = async (data: RegisterData) => {
     options: {
       data: {
         full_name: data.full_name,
-        role: profileRole,
+        ...(profileRole ? { role: profileRole } : {}),
       }
     }
   });
@@ -54,15 +57,16 @@ export const login = async (data: LoginData) => {
   return sessionData;
 };
 
+export const refreshSession = async (data: RefreshSessionData) => {
+  const { data: sessionData, error } = await supabaseClient.auth.refreshSession({
+    refresh_token: data.refreshToken,
+  });
+
+  if (error) throw new Error(error.message);
+  return sessionData;
+};
+
 export const getMe = async (token: string) => {
-  // Mock for demo - in production, use real Supabase auth
-  if (token.startsWith('mock-jwt-token-')) {
-    return {
-      id: '1',
-      email: 'user@example.com',
-      user_metadata: { full_name: 'Maria' }
-    };
-  }
   const { data: { user }, error } = await supabaseClient.auth.getUser(token);
   if (error) throw new Error(error.message);
   return user;

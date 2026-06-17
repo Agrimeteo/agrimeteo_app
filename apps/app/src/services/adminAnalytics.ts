@@ -48,6 +48,22 @@ export interface AdminReport {
   created_at: string;
 }
 
+export interface AdminWeatherAlert {
+  id: string;
+  user_id: string | null;
+  user_name: string;
+  crop_id: string | null;
+  crop_name: string;
+  region_id: string | null;
+  region_name: string;
+  location: string;
+  type: string;
+  security: string;
+  description: string;
+  valid_until: string | null;
+  created_at: string;
+}
+
 type ApiEnvelope<T> = {
   success: boolean;
   data: T;
@@ -82,13 +98,34 @@ export const fetchAdminReports = async (limit = 100) => {
   return unwrap(response.data);
 };
 
+export const fetchAdminWeatherAlerts = async (limit = 200) => {
+  const response = await api.get<ApiEnvelope<AdminWeatherAlert[]>>(`/admin/weather?limit=${limit}`);
+  return unwrap(response.data);
+};
+
 export const fetchAdminAnalytics = async () => {
-  const [stats, users, crops, reports] = await Promise.all([
+  const [statsResult, usersResult, cropsResult, reportsResult] = await Promise.allSettled([
     fetchAdminStats(),
     fetchAdminUsers(),
     fetchAdminCrops(),
     fetchAdminReports(),
   ]);
+
+  const users = usersResult.status === 'fulfilled' ? usersResult.value : [];
+  const crops = cropsResult.status === 'fulfilled' ? cropsResult.value : [];
+  const reports = reportsResult.status === 'fulfilled' ? reportsResult.value : [];
+  const stats =
+    statsResult.status === 'fulfilled'
+      ? statsResult.value
+      : {
+          total_users: users.length,
+          admin_count: users.filter((user) => user.role === 'admin').length,
+          total_crops: crops.length,
+          total_reports: reports.length,
+          total_alerts: 0,
+          unread_notifications: 0,
+          avg_harvest_days: 0,
+        };
 
   return { stats, users, crops, reports };
 };

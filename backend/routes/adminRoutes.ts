@@ -5,6 +5,8 @@ import {
   getUsers, 
   getCrops, 
   getReports, 
+  getWeatherAlerts,
+  getAuditLogs,
   updateUser, 
   deleteUserAccount, 
   getAdminNotifications,
@@ -12,6 +14,11 @@ import {
 } from '../controllers/adminController.js';
 import { adminMiddleware } from '../middlewares/adminMiddleware.js';
 import { authMiddleware } from '../middlewares/authMiddleware.js';
+import { requirePermission } from '../middlewares/permissionMiddleware.js';
+import {
+  getPermissionsMatrix,
+  updateRolePermissions,
+} from '../controllers/permissionController.js';
 
 const router = Router();
 
@@ -22,13 +29,17 @@ router.use(adminMiddleware);
 router.get('/stats', getStats);
 
 // Users management
-router.get('/users', getUsers);
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUserAccount);
+router.get('/users', requirePermission('users.read'), getUsers);
+router.put('/users/:id', requirePermission('users.update'), updateUser);
+router.delete('/users/:id', requirePermission('users.delete'), deleteUserAccount);
 
 // Data management
-router.get('/crops', getCrops);
-router.get('/reports', getReports);
+router.get('/crops', requirePermission('crops.read'), getCrops);
+router.get('/reports', requirePermission('reports.read'), getReports);
+router.get('/weather', getWeatherAlerts);
+router.get('/permissions', requirePermission('permissions.read'), getPermissionsMatrix);
+router.put('/permissions/:role', requirePermission('permissions.update'), updateRolePermissions);
+router.get('/audit-logs', getAuditLogs);
 
 // Notifications
 router.get('/notifications', getAdminNotifications);

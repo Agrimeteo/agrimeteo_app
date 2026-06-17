@@ -1,64 +1,38 @@
-import { AppleIcon, DashboardIcon, MailIcon, PlayIcon, PlayStoreIcon } from './Icons';
+import { DashboardIcon, MailIcon, PlayIcon } from './Icons';
+import { getAppUrl } from '../lib/appLinks';
 
 export function CTA() {
   return (
-    <section data-reveal className="section-wrap reveal px-4 py-18 sm:px-6 lg:px-8">
+    <section id="launch" data-reveal className="section-wrap reveal px-4 py-18 sm:px-6 lg:px-8">
       <div className="cta-panel px-6 py-10 sm:px-8 lg:px-12 lg:py-14">
         <div className="relative z-10 max-w-3xl">
-          <div className="text-sm font-bold uppercase tracking-[0.22em] text-white/70">
-            Ready to explore Agrimeteo
-          </div>
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
-            Launch the app, create an account, and start from the existing frontend flow.
+          <div className="section-kicker !text-white/68">Ready to launch</div>
+          <h2 className="mt-4 max-w-3xl text-3xl font-extrabold tracking-[-0.03em] sm:text-4xl">
+            Move from the website into the product when you are ready to act, not just browse.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-white/80">
-            No auth logic was duplicated here. The landing page acts as a clean
-            independent marketing entry point and hands users off to the app when they
-            are ready.
+            AgroSmart is already structured around a working app flow. The website should create trust,
+            then hand users into the live product with as little friction as possible.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a className="button-secondary" href="http://localhost:5173/login">
-              <MailIcon className="mr-2 h-4 w-4" />
-              Login
+            <a className="button-secondary" href={getAppUrl('/login')}>
+              <MailIcon className="h-4 w-4" />
+              Sign in
             </a>
-            <a className="button-secondary" href="http://localhost:5173/register">
-              <PlayIcon className="mr-2 h-4 w-4" />
-              Register
+            <a className="button-secondary" href={getAppUrl('/register')}>
+              <PlayIcon className="h-4 w-4" />
+              Create account
             </a>
-            <a className="button-secondary" href="http://localhost:5173/dashboard">
-              <DashboardIcon className="mr-2 h-4 w-4" />
-              Dashboard
+            <a className="button-secondary" href={getAppUrl('/farmer-dashboard')}>
+              <DashboardIcon className="h-4 w-4" />
+              Open dashboard
             </a>
           </div>
 
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <a
-              className="button-store button-store-apple"
-              href="#"
-              aria-label="Download Agrimeteo on the App Store"
-            >
-              <AppleIcon className="button-store-icon h-6 w-6" />
-              <span className="button-store-copy">
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
-                  Download on
-                </span>
-                <span className="mt-1 text-base font-extrabold">App Store</span>
-              </span>
-            </a>
-            <a
-              className="button-store button-store-google"
-              href="#"
-              aria-label="Get Agrimeteo on Google Play"
-            >
-              <PlayStoreIcon className="button-store-icon h-6 w-6" />
-              <span className="button-store-copy">
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
-                  Get it on
-                </span>
-                <span className="mt-1 text-base font-extrabold">Google Play</span>
-              </span>
-            </a>
+          <div className="mt-8 max-w-2xl rounded-[1.4rem] border border-white/12 bg-white/8 px-5 py-5 text-sm leading-7 text-white/74">
+            When you share the final app screenshots, this final panel can also become a stronger launch
+            section with a featured screen, testimonial, or store badge row.
           </div>
         </div>
       </div>

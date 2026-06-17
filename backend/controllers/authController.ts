@@ -19,6 +19,15 @@ export const login = async (req: Request, res: Response) => {
     }
 };
 
+export const refresh = async (req: Request, res: Response) => {
+    try {
+        const result = await authService.refreshSession(req.body);
+        res.json({ success: true, data: result });
+    } catch (error) {
+        res.status(401).json({ success: false, error: (error as Error).message });
+    }
+};
+
 export const me = async (req: Request, res: Response) => {
     try {
         const result = await authService.getMe(req.headers.authorization!.split(' ')[1]);

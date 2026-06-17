@@ -1,97 +1,108 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
+import { getRouteForRole, SelectableRole } from '../../utils/authRouting';
 
 const RoleSelection = () => {
   const navigate = useNavigate();
-  const [selectedRole, setSelectedRole] = useState<'beginner' | 'farmer'>('farmer');
+  const { completeRoleSelection, user } = useAuth();
+  const [selectedRole, setSelectedRole] = useState<SelectableRole>('farmer');
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleContinue = () => {
-    localStorage.setItem('userRole', selectedRole);
-    navigate('/register');
+  const handleContinue = async () => {
+    setSaving(true);
+    setError('');
+
+    try {
+      const resolvedUser = await completeRoleSelection(selectedRole);
+      navigate(getRouteForRole(resolvedUser.role), { replace: true });
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'We could not save your role right now. Please try again.'
+      );
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col bg-[#f6f8f8] group/design-root overflow-x-hidden max-w-md mx-auto">
-      {/* Top App Bar */}
-      <div className="flex items-center p-4 pb-2 justify-between">
-        <div className="text-[#13515e] flex size-12 shrink-0 items-center justify-center cursor-pointer">
-          <span className="material-symbols-outlined text-3xl">arrow_back</span>
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#f6f8f8]">
+      <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
+        <div className="px-6 pt-12 pb-6 text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900">Choose your role</h1>
+          <p className="mt-3 text-sm leading-7 text-slate-500">
+            {user?.name ? `Welcome ${user.name}. ` : ''}
+            Before continuing, tell us how you&apos;ll use AgroSmart so we can open the right
+            dashboard for you.
+          </p>
         </div>
-        <h2 className="text-[#13515e] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">AgroSmart</h2>
-      </div>
 
-      {/* Header Section */}
-      <div className="px-6 pt-10 pb-6">
-        <h1 className="text-slate-900 tracking-tight text-3xl font-bold leading-tight text-center">Tell us about yourself</h1>
-        <p className="text-slate-500 text-center mt-2 text-sm">Choose the profile that best describes your agricultural journey.</p>
-      </div>
+        <div className="flex flex-col gap-4 px-6 pb-6">
+          {error && (
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {error}
+            </div>
+          )}
 
-      {/* Role Options Container */}
-      <div className="flex flex-col gap-4 p-6 grow">
-        {/* Farmer Card */}
-        <label className="relative cursor-pointer group">
-          <input
-            checked={selectedRole === 'farmer'}
-            className="peer sr-only"
-            name="role"
-            type="radio"
-            value="farmer"
-            onChange={() => setSelectedRole('farmer')}
-          />
-          <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-white border-2 border-transparent shadow-sm peer-checked:border-[#13515e] peer-checked:ring-2 peer-checked:ring-[#13515e]/20 transition-all">
-            <div className="w-full bg-[#13515e]/10 aspect-video rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#13515e] via-transparent to-transparent"></div>
-              <span className="material-symbols-outlined text-[#13515e] text-6xl">agriculture</span>
+          <label className="relative cursor-pointer">
+            <input
+              checked={selectedRole === 'farmer'}
+              className="peer sr-only"
+              name="role"
+              type="radio"
+              value="farmer"
+              onChange={() => setSelectedRole('farmer')}
+            />
+            <div className="rounded-2xl border-2 border-transparent bg-white p-6 shadow-sm transition-all peer-checked:border-[#13515e] peer-checked:ring-2 peer-checked:ring-[#13515e]/20">
+              <div className="mb-4 flex aspect-video items-center justify-center rounded-xl bg-[#13515e]/10">
+                <span className="material-symbols-outlined text-6xl text-[#13515e]">agriculture</span>
+              </div>
+              <p className="text-xl font-bold text-slate-900">I am a Farmer</p>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Manage crops, follow weather alerts, and track each field from one place.
+              </p>
             </div>
-            <div className="text-center">
-              <p className="text-slate-900 text-xl font-bold leading-tight mb-1">I am a Farmer</p>
-              <p className="text-slate-500 text-sm leading-normal">Manage your crops, track weather patterns, and optimize your yield with advanced tools.</p>
+          </label>
+
+          <label className="relative cursor-pointer">
+            <input
+              checked={selectedRole === 'beginner'}
+              className="peer sr-only"
+              name="role"
+              type="radio"
+              value="beginner"
+              onChange={() => setSelectedRole('beginner')}
+            />
+            <div className="rounded-2xl border-2 border-transparent bg-white p-6 shadow-sm transition-all peer-checked:border-[#13515e] peer-checked:ring-2 peer-checked:ring-[#13515e]/20">
+              <div className="mb-4 flex aspect-video items-center justify-center rounded-xl bg-[#71B280]/10">
+                <span className="material-symbols-outlined text-6xl text-[#71B280]">potted_plant</span>
+              </div>
+              <p className="text-xl font-bold text-slate-900">I am a Beginner</p>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Learn how to start, explore practical guidance, and build confidence step by step.
+              </p>
             </div>
-            <div className="absolute top-4 right-4 text-[#13515e] opacity-0 peer-checked:opacity-100 transition-opacity">
-              <span className="material-symbols-outlined">check_circle</span>
-            </div>
+          </label>
+
+          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm leading-6 text-slate-500">
+            Administrator accounts keep their role from the database and do not need to choose it here.
           </div>
-        </label>
+        </div>
 
-        {/* Beginner Card */}
-        <label className="relative cursor-pointer group">
-          <input
-            checked={selectedRole === 'beginner'}
-            className="peer sr-only"
-            name="role"
-            type="radio"
-            value="beginner"
-            onChange={() => setSelectedRole('beginner')}
-          />
-          <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-white border-2 border-transparent shadow-sm peer-checked:border-[#13515e] peer-checked:ring-2 peer-checked:ring-[#13515e]/20 transition-all">
-            <div className="w-full bg-[#71B280]/10 aspect-video rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#71B280] via-transparent to-transparent"></div>
-              <span className="material-symbols-outlined text-[#71B280] text-6xl">potted_plant</span>
-            </div>
-            <div className="text-center">
-              <p className="text-slate-900 text-xl font-bold leading-tight mb-1">I am a Beginner</p>
-              <p className="text-slate-500 text-sm leading-normal">Learn the basics of gardening, discover plant care tips, and start your first green project.</p>
-            </div>
-            <div className="absolute top-4 right-4 text-[#13515e] opacity-0 peer-checked:opacity-100 transition-opacity">
-              <span className="material-symbols-outlined">check_circle</span>
-            </div>
-          </div>
-        </label>
-      </div>
-
-      {/* Footer Button */}
-      <div className="sticky bottom-0 bg-[#f6f8f8] p-6 pt-2">
-        <button
-          onClick={handleContinue}
-          className="w-full h-14 bg-[#13515e] hover:bg-[#13515e]/90 text-white rounded-xl font-bold text-lg shadow-lg shadow-[#13515e]/20 flex items-center justify-center transition-colors"
-        >
-          Continue
-          <span className="material-symbols-outlined ml-2">arrow_forward</span>
-        </button>
-        <div className="mt-4 flex justify-center items-center gap-1">
-          <div className="h-1.5 w-1.5 rounded-full bg-slate-300"></div>
-          <div className="h-1.5 w-4 rounded-full bg-[#13515e]"></div>
-          <div className="h-1.5 w-1.5 rounded-full bg-slate-300"></div>
+        <div className="mt-auto px-6 pb-8">
+          <button
+            type="button"
+            onClick={handleContinue}
+            disabled={saving}
+            className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-[#13515e] text-lg font-bold text-white shadow-lg shadow-[#13515e]/20 transition-colors hover:bg-[#13515e]/90 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            <span>{saving ? 'Saving your role...' : 'Continue'}</span>
+            <ArrowRight size={20} />
+          </button>
         </div>
       </div>
     </div>
@@ -99,4 +110,3 @@ const RoleSelection = () => {
 };
 
 export default RoleSelection;
-

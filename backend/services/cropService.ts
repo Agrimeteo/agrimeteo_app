@@ -1,5 +1,14 @@
 import { supabaseServiceClient } from '../config/supabase.js';
 
+type CropTypeRecord = {
+  id?: string;
+  name: string;
+  tasks?: unknown[];
+  avg_duration_days?: number | null;
+};
+
+const normalizeCropName = (value: string) => value.trim();
+
 // Mock AI recommendations for now - in production, integrate with Gemini
 export const generateAIRecommendations = async (cropName: string, regionName: string, area: number, climateData: any) => {
   // This would call Gemini API in production
@@ -33,6 +42,91 @@ export const createCrop = async (userId: string, cropData: any) => {
 
   if (error) throw new Error(error.message);
   return data;
+};
+
+export const getCropTypes = async (): Promise<CropTypeRecord[]> => {
+  const { data, error } = await supabaseServiceClient
+    .from('crop_types')
+    .select('id, name, tasks, avg_duration_days')
+    .order('name', { ascending: true });
+
+  if (error) throw new Error(error.message);
+  return data ?? [];
+};
+
+export const getCropTypeById = async (cropTypeId: string): Promise<CropTypeRecord> => {
+  const { data, error } = await supabaseServiceClient
+    .from('crop_types')
+    .select('id, name, tasks, avg_duration_days')
+    .eq('id', cropTypeId)
+    .single();
+
+  if (error) throw new Error(error.message);
+  return data;
+};
+
+export const findCropTypeByName = async (cropName: string): Promise<CropTypeRecord | null> => {
+  const normalizedName = normalizeCropName(cropName);
+
+  if (!normalizedName) {
+    return null;
+  }
+
+  const { data, error } = await supabaseServiceClient
+    .from('crop_types')
+    .select('id, name, tasks, avg_duration_days')
+    .ilike('name', normalizedName)
+    .limit(1);
+
+  if (error) {
+    if (error.message.includes('permission denied')) {
+      return null;
+    }
+
+    throw new Error(error.message);
+  }
+
+  return data?.[0] ?? null;
+};
+
+export const getOrCreateCropType = async (
+  cropName: string,
+  avgDurationDays?: number | null,
+): Promise<CropTypeRecord> => {
+  const normalizedName = normalizeCropName(cropName);
+
+  if (!normalizedName) {
+    throw new Error('Crop name is required');
+  }
+
+  const existingCropType = await findCropTypeByName(normalizedName);
+  if (existingCropType) {
+    return existingCropType;
+  }
+
+  const { data: createdCropType, error: createError } = await supabaseServiceClient
+    .from('crop_types')
+    .insert({
+      name: normalizedName,
+      tasks: [],
+      avg_duration_days: avgDurationDays ?? null,
+    })
+    .select('id, name, tasks, avg_duration_days')
+    .single();
+
+  if (createError) {
+    if (createError.message.includes('permission denied')) {
+      return {
+        name: normalizedName,
+        tasks: [],
+        avg_duration_days: avgDurationDays ?? null,
+      };
+    }
+
+    throw new Error(createError.message);
+  }
+
+  return createdCropType;
 };
 
 export const getCrops = async (userId: string) => {

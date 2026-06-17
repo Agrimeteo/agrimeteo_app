@@ -79,14 +79,14 @@ const AdminDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex-1 overflow-y-auto p-8 space-y-8">
+      <div className="space-y-8">
         <div>Loading admin stats...</div>
       </div>
     );
   }
 
   return (
-    <div className="flex-1 overflow-y-auto p-8 space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="text-2xl font-bold text-slate-900">Dashboard Overview</h2>
@@ -102,8 +102,8 @@ const AdminDashboard: React.FC = () => {
         <StatsCard title="Active Alerts" value={stats.total_alerts} trend={`${stats.unread_notifications} unread`} trendColor="text-red-600" />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+        <div className="min-w-0 lg:col-span-2 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-8 flex items-center justify-between">
             <div>
               <h3 className="text-lg font-bold">Platform Activity</h3>
@@ -111,39 +111,51 @@ const AdminDashboard: React.FC = () => {
             </div>
             <div className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">Auto-refresh 30s</div>
           </div>
-          <div className="h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={activityData}>
-                <defs>
-                  <linearGradient id="activityGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#13515e" stopOpacity={0.25} />
-                    <stop offset="95%" stopColor="#13515e" stopOpacity={0.03} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
-                <XAxis dataKey="label" stroke="#64748b" fontSize={12} />
-                <YAxis allowDecimals={false} stroke="#64748b" fontSize={12} />
-                <Tooltip />
-                <Area type="monotone" dataKey="total" stroke="#13515e" fill="url(#activityGradient)" strokeWidth={3} />
-                <Area type="monotone" dataKey="reports" stroke="#71B280" fill="transparent" strokeWidth={2} />
-              </AreaChart>
-            </ResponsiveContainer>
+          <div className="h-72 min-w-0">
+            {activityData.length ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={activityData}>
+                  <defs>
+                    <linearGradient id="activityGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#13515e" stopOpacity={0.25} />
+                      <stop offset="95%" stopColor="#13515e" stopOpacity={0.03} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
+                  <XAxis dataKey="label" stroke="#64748b" fontSize={12} />
+                  <YAxis allowDecimals={false} stroke="#64748b" fontSize={12} />
+                  <Tooltip />
+                  <Area type="monotone" dataKey="total" stroke="#13515e" fill="url(#activityGradient)" strokeWidth={3} />
+                  <Area type="monotone" dataKey="reports" stroke="#71B280" fill="transparent" strokeWidth={2} />
+                </AreaChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="flex h-full items-center justify-center rounded-xl border border-dashed border-slate-200 text-sm text-slate-400">
+                No activity data available yet.
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-bold text-slate-900">Crop Portfolio</h2>
-          <div className="h-48">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={cropTypeData} dataKey="value" nameKey="name" innerRadius={45} outerRadius={72} paddingAngle={4}>
-                  {cropTypeData.map((entry, index) => (
-                    <Cell key={entry.name} fill={CHART_COLORS[index % CHART_COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
+          <div className="h-48 min-w-0">
+            {cropTypeData.length ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie data={cropTypeData} dataKey="value" nameKey="name" innerRadius={45} outerRadius={72} paddingAngle={4}>
+                    {cropTypeData.map((entry, index) => (
+                      <Cell key={entry.name} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="flex h-full items-center justify-center rounded-xl border border-dashed border-slate-200 text-sm text-slate-400">
+                No crop data available yet.
+              </div>
+            )}
           </div>
           <div className="mt-4 space-y-3">
             {cropTypeData.map((crop, index) => (
@@ -161,7 +173,7 @@ const AdminDashboard: React.FC = () => {
 
       <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="mb-6 text-xl font-bold text-slate-900">Regional Activity Matrix</h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
           {regionalActivity.map((region) => (
             <div key={region.location} className="rounded-lg bg-slate-50 p-4">
               <h4 className="mb-2 text-sm font-bold text-slate-900">{region.location}</h4>

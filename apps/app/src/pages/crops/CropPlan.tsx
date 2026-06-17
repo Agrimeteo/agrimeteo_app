@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { CheckCircle, Clock, AlertCircle, ArrowLeft } from 'lucide-react';
-import axios from 'axios';
+import api from '../../services/api';
+import CropRecommendationsWidget from '../../components/CropRecommendationsWidget';
 
 interface Task {
   id: string;
@@ -15,6 +16,10 @@ interface Task {
 interface CropPlan {
   id: string;
   crop_id: string;
+  crop?: {
+    id: string;
+    name?: string | null;
+  } | null;
   tasks: Task[];
   created_at: string;
   updated_at: string;
@@ -29,10 +34,7 @@ const CropPlan: React.FC = () => {
   useEffect(() => {
     const fetchPlan = async () => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/v1/crop-plans/${id}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        const response = await api.get(`/crop-plans/${id}`);
         setPlan(response.data.data);
       } catch (error) {
         console.error('Error fetching plan:', error);
@@ -46,12 +48,17 @@ const CropPlan: React.FC = () => {
 
   const updateTaskStatus = async (taskId: string, status: string) => {
     try {
-      const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/v1/crop-plans/${plan?.id}/tasks/${taskId}`, { status }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      // Refresh plan
-      window.location.reload();
+      await api.patch(`/crop-plans/${plan?.id}/task/${taskId}`, { status });
+      setPlan((currentPlan) =>
+        currentPlan
+          ? {
+              ...currentPlan,
+              tasks: currentPlan.tasks.map((task) =>
+                task.id === taskId ? { ...task, status: status as Task['status'] } : task,
+              ),
+            }
+          : currentPlan,
+      );
     } catch (error) {
       console.error('Error updating task:', error);
     }
@@ -72,9 +79,16 @@ const CropPlan: React.FC = () => {
         </button>
         <div>
           <h2 className="text-2xl font-bold text-slate-900">Crop Plan</h2>
-          <p className="text-slate-500 text-sm">Track your farming activities</p>
+          <p className="text-slate-500 text-sm">
+            Track your farming activities and follow the latest recommendations.
+          </p>
         </div>
       </div>
+
+      <CropRecommendationsWidget
+        planId={plan.id}
+        cropName={plan.crop?.name ?? null}
+      />
 
       <div className="space-y-4">
         {plan.tasks.map((task) => (

@@ -2,20 +2,48 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, User, Sprout, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { getRouteForRole } from '../../utils/authRouting';
 
 const Register: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const { register } = useAuth();
+  const [errorMessage, setErrorMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [googleSubmitting, setGoogleSubmitting] = useState(false);
+  const { register, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const role = localStorage.getItem('userRole') as 'farmer' | 'beginner' || 'farmer';
-    await register(name, email, password, role);
-    navigate(role === 'farmer' ? '/farmer-dashboard' : '/beginner-dashboard');
+    setErrorMessage('');
+    setSubmitting(true);
+
+    try {
+      const resolvedUser = await register(name, email, password);
+      navigate(getRouteForRole(resolvedUser.role), { replace: true });
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Unable to create your account. Please try again.';
+      setErrorMessage(message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleGoogleRegister = async () => {
+    setErrorMessage('');
+    setGoogleSubmitting(true);
+
+    try {
+      await loginWithGoogle();
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Unable to start Google sign-in right now.';
+      setErrorMessage(message);
+      setGoogleSubmitting(false);
+    }
   };
 
   return (
@@ -33,6 +61,11 @@ const Register: React.FC = () => {
           </header>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {errorMessage && (
+              <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                {errorMessage}
+              </div>
+            )}
             <div className="space-y-2">
               <label className="text-slate-700 text-sm font-semibold ml-1">Full Name</label>
               <div className="relative group">
@@ -43,7 +76,10 @@ const Register: React.FC = () => {
                   type="text"
                   required
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    if (errorMessage) setErrorMessage('');
+                  }}
                   className="w-full rounded-xl text-slate-900 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white h-14 pl-11 pr-4 placeholder:text-slate-400 transition-all outline-none"
                   placeholder="Enter your full name"
                 />
@@ -60,7 +96,10 @@ const Register: React.FC = () => {
                   type="email"
                   required
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (errorMessage) setErrorMessage('');
+                  }}
                   className="w-full rounded-xl text-slate-900 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white h-14 pl-11 pr-4 placeholder:text-slate-400 transition-all outline-none"
                   placeholder="nature@agrosmart.com"
                 />
@@ -77,7 +116,10 @@ const Register: React.FC = () => {
                   type={showPassword ? 'text' : 'password'}
                   required
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (errorMessage) setErrorMessage('');
+                  }}
                   className="w-full rounded-xl text-slate-900 focus:ring-2 focus:ring-primary/20 border border-slate-200 bg-white h-14 pl-11 pr-12 placeholder:text-slate-400 transition-all outline-none"
                   placeholder="••••••••"
                 />
@@ -104,9 +146,9 @@ const Register: React.FC = () => {
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
-                  disabled
-                  title="Coming Soon"
-                  className="h-12 bg-slate-100 text-slate-400 font-medium rounded-xl border border-slate-200 hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 cursor-not-allowed"
+                  onClick={handleGoogleRegister}
+                  disabled={googleSubmitting || submitting}
+                  className="h-12 bg-white text-slate-700 font-medium rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -114,7 +156,7 @@ const Register: React.FC = () => {
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                   </svg>
-                  <span>Google</span>
+                  <span>{googleSubmitting ? 'Redirecting...' : 'Google'}</span>
                 </button>
                 <button
                   type="button"
@@ -132,9 +174,10 @@ const Register: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full h-14 bg-gradient-to-r from-[#134E5E] to-[#71B280] text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+              disabled={submitting}
+              className="w-full h-14 bg-gradient-to-r from-[#134E5E] to-[#71B280] text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <span>Create Account</span>
+              <span>{submitting ? 'Creating account...' : 'Create Account'}</span>
               <ArrowRight size={20} />
             </button>
           </form>

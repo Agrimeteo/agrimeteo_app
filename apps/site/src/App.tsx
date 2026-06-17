@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import { HowItWorks } from './components/HowItWorks';
 import { Navbar } from './components/Navbar';
 import { Preview } from './components/Preview';
+import { TrustStrip } from './components/TrustStrip';
 import { WhyAgroSmart } from './components/WhyAgroSmart';
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <TrustStrip />
           <Features />
           <HowItWorks />
           <WhyAgroSmart />

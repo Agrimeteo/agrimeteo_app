@@ -1,0 +1,449 @@
+<mxfile host="app.diagrams.net" modified="2026-06-15T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="ctx-use-cases" name="01 - Context and Use Cases">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" value="Agrimeteo - System Context and Use Cases" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="520" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary1" value="Agrimeteo Platform" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=16;fontStyle=1;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="1240" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="actor1" value="Visitor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="90" y="150" width="80" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="actor2" value="Beginner User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="90" y="340" width="80" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="actor3" value="Farmer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="90" y="560" width="80" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="actor4" value="Administrator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="340" width="90" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="uc1" value="Browse marketing site" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="140" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" value="Sign up / Sign in" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="140" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" value="Complete profile and role selection" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="140" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" value="Manage crops" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="310" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc5" value="Generate crop plans" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="310" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" value="Consult weather and alerts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="310" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" value="Receive AI recommendations" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="500" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc8" value="Create reports and diagnostics" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="500" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc9" value="Use community posts, comments and likes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="500" width="320" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc10" value="Update personal settings" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="690" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc11" value="Manage users and permissions" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="690" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc12" value="Review analytics and audit logs" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="690" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc13" value="Moderate reports and platform content" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="860" width="320" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor1" target="uc1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor1" target="uc2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc9"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor2" target="uc10"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e17" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc9"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor3" target="uc10"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor4" target="uc11"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor4" target="uc12"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="actor4" target="uc13"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" value="extends" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="uc5" target="uc4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" value="feeds" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="uc6" target="uc7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e24" value="supports" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="uc8" target="uc13"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="components" name="02 - Component Diagram">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ct1" value="Agrimeteo - Component Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="site" value="Marketing Site&#xa;React + Vite&#xa;Landing pages&#xa;Trust and conversion content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="250" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="app" value="Web App / PWA&#xa;React + Vite&#xa;Auth, crops, reports, weather, community&#xa;Admin dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="250" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" value="Installable browser app&#xa;Same Vite frontend&#xa;Responsive experience" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="550" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="apiBoundary" value="Express Backend API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="90" width="1110" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="routes" value="Routes Layer&#xa;/auth&#xa;/profile&#xa;/crops&#xa;/reports&#xa;/community&#xa;/settings&#xa;/permissions&#xa;/admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="470" y="150" width="230" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="controllers" value="Controllers&#xa;Request validation&#xa;HTTP payload mapping&#xa;Error shaping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="150" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="middleware" value="Middleware&#xa;requireAuth&#xa;requireRole&#xa;requirePermission&#xa;multer upload handling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="150" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="services1" value="Domain Services&#xa;cropPlanService&#xa;recommendationService&#xa;reportService&#xa;notification logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="470" y="430" width="260" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="services2" value="Admin Services&#xa;analytics aggregation&#xa;RBAC management&#xa;audit log writing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="790" y="430" width="240" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="integrations" value="Integration Services&#xa;Supabase client&#xa;OpenWeatherMap client&#xa;Google GenAI client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="430" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="supabase" value="Supabase Platform&#xa;Auth&#xa;PostgreSQL&#xa;Storage&#xa;Realtime&#xa;RLS Policies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="150" width="250" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="weatherApi" value="OpenWeatherMap API&#xa;Current weather&#xa;Forecast data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="450" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="genai" value="Google GenAI&#xa;Advisory text generation&#xa;Recommendation enrichment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="620" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ce1" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="site" target="routes"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce2" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="app" target="routes"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce3" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="mobile" target="routes"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce4" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="routes" target="controllers"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce5" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="routes" target="middleware"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce6" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="controllers" target="services1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce7" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="controllers" target="services2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce8" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="controllers" target="integrations"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce9" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="middleware" target="supabase"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce10" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="services1" target="supabase"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce11" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="services2" target="supabase"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce12" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="integrations" target="supabase"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce13" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="integrations" target="weatherApi"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ce14" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="integrations" target="genai"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="deployment" name="03 - Deployment Diagram">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dt1" value="Agrimeteo - Deployment Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="clientZone" value="Client Devices" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="420" height="860" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" value="Browser&#xa;Marketing site access&#xa;User dashboard access" style="shape=mxgraph.aws4.user;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="120" y="180" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="pwa" value="Installed PWA&#xa;Responsive app shell&#xa;Offline-capable surface" style="shape=mxgraph.aws4.mobile_client;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="300" y="180" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="serverZone" value="Application Hosting" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="590" y="100" width="620" height="860" as="geometry" />
+        </mxCell>
+        <mxCell id="siteSrv" value="Static Site Hosting&#xa;Vite marketing build&#xa;Public landing pages" style="shape=mxgraph.aws4.server;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="appSrv" value="Frontend App Hosting&#xa;Vite app build&#xa;Authenticated UI" style="shape=mxgraph.aws4.server;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="930" y="180" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="apiSrv" value="Node.js / Express API&#xa;TypeScript runtime&#xa;REST endpoints" style="shape=mxgraph.aws4.application_server;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="790" y="420" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="env" value="Environment Secrets&#xa;SUPABASE_URL&#xa;SUPABASE_SERVICE_ROLE_KEY&#xa;OPENWEATHER_API_KEY&#xa;GOOGLE_GENAI_API_KEY" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="700" y="690" width="400" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="dataZone" value="Managed Cloud Services" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="100" width="520" height="860" as="geometry" />
+        </mxCell>
+        <mxCell id="supaAuth" value="Supabase Auth&#xa;Email auth&#xa;Google OAuth&#xa;Session management" style="shape=mxgraph.aws4.database;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="180" width="170" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="supaDb" value="Supabase PostgreSQL&#xa;Profiles&#xa;Crops&#xa;Reports&#xa;Community&#xa;Permissions&#xa;Audit logs" style="shape=mxgraph.aws4.database;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="180" width="170" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="supaStorage" value="Supabase Storage&#xa;Avatars&#xa;Report images" style="shape=mxgraph.aws4.bucket;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="430" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="supaRealtime" value="Supabase Realtime&#xa;Community updates" style="shape=mxgraph.aws4.analytics;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="430" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="owm" value="OpenWeatherMap API" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="650" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="google" value="Google Services&#xa;OAuth + GenAI" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="650" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="de1" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="browser" target="siteSrv"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de2" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="browser" target="appSrv"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de3" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="pwa" target="appSrv"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de4" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="appSrv" target="apiSrv"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de5" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="apiSrv" target="supaAuth"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de6" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="apiSrv" target="supaDb"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de7" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="apiSrv" target="supaStorage"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de8" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="apiSrv" target="supaRealtime"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de9" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="apiSrv" target="owm"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="de10" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="apiSrv" target="google"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="domain" name="04 - Domain Class Diagram">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k1" value="Agrimeteo - Domain Class Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="460" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="authu" value="User&#xa;-------------------&#xa;+ id : UUID&#xa;+ email : string&#xa;+ createdAt : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="profile" value="Profile&#xa;-------------------&#xa;+ id : UUID&#xa;+ fullName : string&#xa;+ email : string&#xa;+ phone : string&#xa;+ role : admin|farmer|beginner&#xa;+ location : string&#xa;+ bio : text&#xa;+ avatarUrl : string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="90" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="settings" value="UserSettings&#xa;-------------------&#xa;+ id : UUID&#xa;+ userId : UUID&#xa;+ language : string&#xa;+ theme : light|dark&#xa;+ unitsSystem : metric|imperial&#xa;+ privacyOptions : JSONB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="100" width="240" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="crop" value="Crop&#xa;-------------------&#xa;+ id : UUID&#xa;+ userId : UUID&#xa;+ cropTypeId : UUID&#xa;+ name : string&#xa;+ status : string&#xa;+ plantingDate : date&#xa;+ expectedHarvest : date&#xa;+ area : number&#xa;+ region : string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="930" y="70" width="230" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cropType" value="CropType&#xa;-------------------&#xa;+ id : UUID&#xa;+ name : string&#xa;+ tasks : JSONB&#xa;+ avgDurationDays : int" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="90" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="plan" value="CropPlan&#xa;-------------------&#xa;+ id : UUID&#xa;+ cropId : UUID&#xa;+ tasks : JSONB&#xa;+ createdAt : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="930" y="330" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="report" value="Report&#xa;-------------------&#xa;+ id : UUID&#xa;+ userId : UUID&#xa;+ cropId : UUID?&#xa;+ title : string&#xa;+ description : text&#xa;+ status : string&#xa;+ imageUrl : string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="360" width="250" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="notif" value="Notification&#xa;-------------------&#xa;+ id : UUID&#xa;+ userId : UUID&#xa;+ title : string&#xa;+ message : string&#xa;+ type : string&#xa;+ read : boolean" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="380" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="communityPost" value="CommunityPost&#xa;-------------------&#xa;+ id : UUID&#xa;+ userId : UUID&#xa;+ relatedCropId : UUID?&#xa;+ type : question|tip|experience&#xa;+ title : string&#xa;+ content : text&#xa;+ status : published|hidden" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="560" width="260" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="communityComment" value="CommunityComment&#xa;-------------------&#xa;+ id : UUID&#xa;+ postId : UUID&#xa;+ userId : UUID&#xa;+ parentCommentId : UUID?&#xa;+ content : text&#xa;+ status : published|hidden" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="940" y="580" width="260" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="communityLike" value="CommunityLike&#xa;-------------------&#xa;+ id : UUID&#xa;+ postId : UUID&#xa;+ userId : UUID&#xa;+ createdAt : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="600" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="weatherAlert" value="WeatherAlert&#xa;-------------------&#xa;+ id : UUID&#xa;+ regionId : UUID&#xa;+ cropId : UUID?&#xa;+ userId : UUID?&#xa;+ severity : string&#xa;+ title : string&#xa;+ description : text" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="310" width="230" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="permCatalog" value="PermissionCatalog&#xa;-------------------&#xa;+ id : UUID&#xa;+ code : string&#xa;+ resource : string&#xa;+ action : string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="90" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rolePerm" value="RolePermission&#xa;-------------------&#xa;+ id : UUID&#xa;+ role : string&#xa;+ permissionId : UUID&#xa;+ allowed : boolean" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="290" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="audit" value="AdminAuditLog&#xa;-------------------&#xa;+ id : UUID&#xa;+ actorUserId : UUID&#xa;+ actorRole : string&#xa;+ entityType : string&#xa;+ entityId : UUID&#xa;+ action : create|update|delete&#xa;+ description : text&#xa;+ details : JSONB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="520" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cl1" value="1..1" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="authu" target="profile"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl2" value="1..1" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="profile" target="settings"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl3" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="profile" target="crop"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl4" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="profile" target="report"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl5" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="profile" target="notif"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl6" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cropType" target="crop"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl7" value="1..1" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="crop" target="plan"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl8" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="profile" target="communityPost"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl9" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="communityPost" target="communityComment"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl10" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="communityPost" target="communityLike"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl11" value="0..*" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="crop" target="communityPost"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl12" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="profile" target="audit"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl13" value="1..*" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="permCatalog" target="rolePerm"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl14" value="targets" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="profile" target="weatherAlert"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cl15" value="concerns" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="crop" target="weatherAlert"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="auth-sequence" name="05 - Auth and Profile Sequence">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s1t" value="Auth and Profile Sync Sequence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="460" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="80" y="90" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="p2" value="React App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="340" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="p3" value="Supabase Auth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="630" y="90" width="150" height="50" as="geometry" /></mxCell>
+        <mxCell id="p4" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="930" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="p5" value="Profiles Table" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1210" y="90" width="150" height="50" as="geometry" /></mxCell>
+        <mxCell id="l1" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="140" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="l2" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="410" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="l3" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="705" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="l4" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1000" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="l5" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1285" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="m1" value="1. Submit email / password or Google login" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p1" target="p2"><mxGeometry relative="1" as="geometry"><mxPoint x="410" y="220" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m2" value="2. signIn / signUp" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p2" target="p3"><mxGeometry relative="1" as="geometry"><mxPoint x="705" y="280" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m3" value="3. Return session and user token" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p3" target="p2"><mxGeometry relative="1" as="geometry"><mxPoint x="410" y="340" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m4" value="4. setSession / persist auth state" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p2" target="p2"><mxGeometry relative="1" as="geometry"><mxPoint x="520" y="400" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m5" value="5. POST /api/v1/profile/sync" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p2" target="p4"><mxGeometry relative="1" as="geometry"><mxPoint x="1000" y="470" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m6" value="6. Validate bearer token with Supabase" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="p4" target="p3"><mxGeometry relative="1" as="geometry"><mxPoint x="705" y="540" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m7" value="7. Upsert profile row and role data" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p4" target="p5"><mxGeometry relative="1" as="geometry"><mxPoint x="1285" y="620" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m8" value="8. Return synced profile" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p5" target="p4"><mxGeometry relative="1" as="geometry"><mxPoint x="1000" y="690" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m9" value="9. GET /api/v1/settings" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p2" target="p4"><mxGeometry relative="1" as="geometry"><mxPoint x="1000" y="780" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m10" value="10. Read user settings + permissions" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="p4" target="p5"><mxGeometry relative="1" as="geometry"><mxPoint x="1285" y="850" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m11" value="11. Return hydrated session context" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p4" target="p2"><mxGeometry relative="1" as="geometry"><mxPoint x="410" y="940" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m12" value="12. Render app with theme, role and profile" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="p2" target="p1"><mxGeometry relative="1" as="geometry"><mxPoint x="140" y="1020" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="crop-sequence" name="06 - Crop Weather Recommendation Sequence">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cs1" value="Crop, Weather and Recommendation Sequence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="560" height="30" as="geometry" /></mxCell>
+        <mxCell id="cp1" value="Farmer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="60" y="90" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp2" value="React App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="300" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp3" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="560" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp4" value="Crop Tables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="820" y="90" width="150" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp5" value="Crop Plan Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1090" y="90" width="170" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp6" value="Weather Provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1380" y="90" width="160" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp7" value="Recommendation Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1650" y="90" width="190" height="50" as="geometry" /></mxCell>
+        <mxCell id="cp8" value="Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1940" y="90" width="150" height="50" as="geometry" /></mxCell>
+        <mxCell id="cpl1" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="120" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl2" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="370" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl3" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="630" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl4" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="895" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl5" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1175" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl6" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1460" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl7" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1745" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cpl8" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="2015" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="cm1" value="1. Create crop" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp1" target="cp2"><mxGeometry relative="1" as="geometry"><mxPoint x="370" y="220" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm2" value="2. POST /crops" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp2" target="cp3"><mxGeometry relative="1" as="geometry"><mxPoint x="630" y="280" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm3" value="3. Persist crop" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp3" target="cp4"><mxGeometry relative="1" as="geometry"><mxPoint x="895" y="340" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm4" value="4. Build task timeline" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp3" target="cp5"><mxGeometry relative="1" as="geometry"><mxPoint x="1175" y="410" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm5" value="5. Save crop plan" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp5" target="cp4"><mxGeometry relative="1" as="geometry"><mxPoint x="895" y="480" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm6" value="6. Get region weather" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp3" target="cp6"><mxGeometry relative="1" as="geometry"><mxPoint x="1460" y="560" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm7" value="7. Return current conditions / forecast" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp6" target="cp3"><mxGeometry relative="1" as="geometry"><mxPoint x="630" y="630" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm8" value="8. Request agronomic recommendations" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp3" target="cp7"><mxGeometry relative="1" as="geometry"><mxPoint x="1745" y="710" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm9" value="9. Return advice and risk factors" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp7" target="cp3"><mxGeometry relative="1" as="geometry"><mxPoint x="630" y="780" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm10" value="10. Create reminder notifications" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp3" target="cp8"><mxGeometry relative="1" as="geometry"><mxPoint x="2015" y="860" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm11" value="11. Return crop, plan, weather and recommendations" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp3" target="cp2"><mxGeometry relative="1" as="geometry"><mxPoint x="370" y="960" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="cm12" value="12. Render dashboard cards and timeline" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="cp2" target="cp1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="1040" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="community-sequence" name="07 - Community Sequence">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qt1" value="Community Interaction Sequence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="460" height="30" as="geometry" /></mxCell>
+        <mxCell id="q1" value="User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="70" y="90" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="q2" value="Community Page" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="320" y="90" width="150" height="50" as="geometry" /></mxCell>
+        <mxCell id="q3" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="600" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="q4" value="Community Tables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="900" y="90" width="160" height="50" as="geometry" /></mxCell>
+        <mxCell id="q5" value="Supabase Realtime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1200" y="90" width="170" height="50" as="geometry" /></mxCell>
+        <mxCell id="ql1" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="130" y="160" width="1" height="1080" as="geometry" /></mxCell>
+        <mxCell id="ql2" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="395" y="160" width="1" height="1080" as="geometry" /></mxCell>
+        <mxCell id="ql3" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="670" y="160" width="1" height="1080" as="geometry" /></mxCell>
+        <mxCell id="ql4" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="980" y="160" width="1" height="1080" as="geometry" /></mxCell>
+        <mxCell id="ql5" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1285" y="160" width="1" height="1080" as="geometry" /></mxCell>
+        <mxCell id="qm1" value="1. Open community feed" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q1" target="q2"><mxGeometry relative="1" as="geometry"><mxPoint x="395" y="220" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm2" value="2. GET /community" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q2" target="q3"><mxGeometry relative="1" as="geometry"><mxPoint x="670" y="280" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm3" value="3. Read posts, comments and likes" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q3" target="q4"><mxGeometry relative="1" as="geometry"><mxPoint x="980" y="340" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm4" value="4. Subscribe to realtime changes" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="q2" target="q5"><mxGeometry relative="1" as="geometry"><mxPoint x="1285" y="410" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm5" value="5. Create post / comment / like" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q1" target="q2"><mxGeometry relative="1" as="geometry"><mxPoint x="395" y="500" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm6" value="6. POST action to API" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q2" target="q3"><mxGeometry relative="1" as="geometry"><mxPoint x="670" y="570" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm7" value="7. Persist new community event" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q3" target="q4"><mxGeometry relative="1" as="geometry"><mxPoint x="980" y="640" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm8" value="8. Emit realtime update" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q4" target="q5"><mxGeometry relative="1" as="geometry"><mxPoint x="1285" y="710" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm9" value="9. Push event to subscribed page" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q5" target="q2"><mxGeometry relative="1" as="geometry"><mxPoint x="395" y="780" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="qm10" value="10. Update feed instantly" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="q2" target="q1"><mxGeometry relative="1" as="geometry"><mxPoint x="130" y="850" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="admin-sequence" name="08 - Admin Permissions and Audit">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="at1" value="Admin Permissions and Audit Sequence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="560" height="30" as="geometry" /></mxCell>
+        <mxCell id="a1" value="Admin User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="60" y="90" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="a2" value="Admin UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="280" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="a3" value="Express API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="540" y="90" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="a4" value="Permission Middleware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="800" y="90" width="180" height="50" as="geometry" /></mxCell>
+        <mxCell id="a5" value="Profiles + RBAC Tables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1080" y="90" width="190" height="50" as="geometry" /></mxCell>
+        <mxCell id="a6" value="Admin Audit Logs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1370" y="90" width="170" height="50" as="geometry" /></mxCell>
+        <mxCell id="al1" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="120" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="al2" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="350" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="al3" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="610" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="al4" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="890" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="al5" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1175" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="al6" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1"><mxGeometry x="1455" y="160" width="1" height="1180" as="geometry" /></mxCell>
+        <mxCell id="am1" value="1. Open permissions dashboard" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="220" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am2" value="2. GET /admin/users + /permissions" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"><mxPoint x="610" y="290" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am3" value="3. Check role and permission codes" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"><mxPoint x="890" y="360" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am4" value="4. Load actor role and RBAC matrix" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a4" target="a5"><mxGeometry relative="1" as="geometry"><mxPoint x="1175" y="430" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am5" value="5. Return admin dataset" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a3" target="a2"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="500" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am6" value="6. Update a role or permission" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="590" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am7" value="7. PUT /admin/users/:id/role or /permissions/roles/:role" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"><mxPoint x="610" y="660" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am8" value="8. Re-check access rights" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"><mxPoint x="890" y="730" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am9" value="9. Persist role / permission change" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a3" target="a5"><mxGeometry relative="1" as="geometry"><mxPoint x="1175" y="800" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am10" value="10. Insert audit record" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a3" target="a6"><mxGeometry relative="1" as="geometry"><mxPoint x="1455" y="870" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="am11" value="11. Return updated state" style="endArrow=block;html=1;rounded=0;" edge="1" parent="1" source="a3" target="a2"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="960" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="state" name="09 - Crop Lifecycle State Diagram">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="st1" value="Crop Lifecycle State Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="40" y="20" width="420" height="30" as="geometry" /></mxCell>
+        <mxCell id="start" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="90" y="260" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="sPlanned" value="Planned" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="180" y="230" width="160" height="90" as="geometry" /></mxCell>
+        <mxCell id="sPlanted" value="Planted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="430" y="230" width="160" height="90" as="geometry" /></mxCell>
+        <mxCell id="sGrowing" value="Growing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="690" y="230" width="160" height="90" as="geometry" /></mxCell>
+        <mxCell id="sReady" value="Ready for Harvest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="960" y="230" width="190" height="90" as="geometry" /></mxCell>
+        <mxCell id="sHarvested" value="Harvested" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1260" y="230" width="170" height="90" as="geometry" /></mxCell>
+        <mxCell id="sFailed" value="Failed / Lost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="700" y="470" width="170" height="90" as="geometry" /></mxCell>
+        <mxCell id="end" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=3;" vertex="1" parent="1"><mxGeometry x="1540" y="255" width="34" height="34" as="geometry" /></mxCell>
+        <mxCell id="se1" value="create crop" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="start" target="sPlanned"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se2" value="confirm planting" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="sPlanned" target="sPlanted"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se3" value="growth starts" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="sPlanted" target="sGrowing"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se4" value="maturity reached" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="sGrowing" target="sReady"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se5" value="harvest recorded" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="sReady" target="sHarvested"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se6" value="archive crop" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="sHarvested" target="end"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se7" value="weather / disease / manual stop" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="sPlanted" target="sFailed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se8" value="critical issue" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="sGrowing" target="sFailed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="se9" value="crop loss before harvest" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="sReady" target="sFailed"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

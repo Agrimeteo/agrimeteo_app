@@ -1,0 +1,272 @@
+<mxfile host="app.diagrams.net" modified="2026-03-31T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="class-diagram" name="Class Diagram">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="Agrosmart UML - Class / Data Diagram" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth_users" value="auth.users&#xa;-----------------------&#xa;+ id : UUID&#xa;+ email : string&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="profiles" value="profiles&#xa;-----------------------&#xa;+ id : UUID&#xa;+ full_name : string&#xa;+ email : string&#xa;+ phone : string&#xa;+ role : string&#xa;+ location : string&#xa;+ bio : string&#xa;+ avatar_url : string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="crops" value="crops&#xa;-----------------------&#xa;+ id : UUID&#xa;+ user_id : UUID&#xa;+ name : string&#xa;+ crop_type : string&#xa;+ crop_type_id : UUID&#xa;+ planting_date : date&#xa;+ expected_harvest : date&#xa;+ status : string&#xa;+ area : number&#xa;+ location : string&#xa;+ region : string&#xa;+ notes : text&#xa;+ suitability_score : int&#xa;+ suitability_reasons : string[]&#xa;+ area_warning : boolean" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="50" width="280" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="crop_types" value="crop_types&#xa;-----------------------&#xa;+ id : UUID&#xa;+ name : string&#xa;+ tasks : JSONB&#xa;+ avg_duration_days : int&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="70" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="crop_plans" value="crop_plans&#xa;-----------------------&#xa;+ id : UUID&#xa;+ crop_id : UUID&#xa;+ tasks : JSONB&#xa;+ created_at : datetime&#xa;+ updated_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="240" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="reports" value="reports&#xa;-----------------------&#xa;+ id : UUID&#xa;+ user_id : UUID&#xa;+ title : string&#xa;+ description : text&#xa;+ crop_type : string&#xa;+ status : string&#xa;+ image_url : string&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="notifications" value="notifications&#xa;-----------------------&#xa;+ id : UUID&#xa;+ user_id : UUID&#xa;+ title : string&#xa;+ message : string&#xa;+ type : string&#xa;+ read : boolean&#xa;+ data : JSONB&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_notifications" value="admin_notifications&#xa;-----------------------&#xa;+ id : UUID&#xa;+ title : string&#xa;+ message : string&#xa;+ type : string&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="530" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="regions" value="regions&#xa;-----------------------&#xa;+ id : UUID&#xa;+ name : string&#xa;+ climate : string&#xa;+ soil_type : string&#xa;+ avg_precipitation_mm : int&#xa;+ avg_temperature_c : number&#xa;+ latitude : number&#xa;+ longitude : number" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="390" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="crop_region_suitability" value="crop_region_suitability&#xa;-----------------------&#xa;+ id : UUID&#xa;+ crop_type : string&#xa;+ region_id : UUID&#xa;+ suitability_score : int&#xa;+ reasons : string[]&#xa;+ max_recommended_area_ha : int" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="420" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="climate_data" value="climate_data&#xa;-----------------------&#xa;+ id : UUID&#xa;+ region_id : UUID&#xa;+ season : string&#xa;+ avg_temp_min : number&#xa;+ avg_temp_max : number&#xa;+ avg_rainfall_mm : number&#xa;+ humidity_percent : number&#xa;+ recommendations : string[]&#xa;+ risk_factors : string[]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="610" width="230" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="weather_alerts" value="weather_alerts&#xa;-----------------------&#xa;+ id : UUID&#xa;+ title : string&#xa;+ description : text&#xa;+ severity : string&#xa;+ date : datetime&#xa;+ region_id : UUID&#xa;+ crop_id : UUID&#xa;+ user_id : UUID&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="610" width="280" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_stats" value="admin_stats &lt;&lt;view&gt;&gt;&#xa;-----------------------&#xa;+ total_users : int&#xa;+ admin_count : int&#xa;+ total_crops : int&#xa;+ total_reports : int&#xa;+ total_alerts : int&#xa;+ unread_notifications : int&#xa;+ avg_harvest_days : number" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="70" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_users" value="admin_users &lt;&lt;view&gt;&gt;&#xa;-----------------------&#xa;+ id : UUID&#xa;+ full_name : string&#xa;+ email : string&#xa;+ role : string&#xa;+ location : string&#xa;+ crop_count : int&#xa;+ report_count : int" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="270" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_crops" value="admin_crops &lt;&lt;view&gt;&gt;&#xa;-----------------------&#xa;+ id : UUID&#xa;+ user_name : string&#xa;+ user_role : string&#xa;+ name : string&#xa;+ crop_type : string&#xa;+ status : string&#xa;+ location : string" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="460" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_reports" value="admin_reports &lt;&lt;view&gt;&gt;&#xa;-----------------------&#xa;+ id : UUID&#xa;+ user_name : string&#xa;+ user_role : string&#xa;+ title : string&#xa;+ crop_type : string&#xa;+ status : string&#xa;+ created_at : datetime" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="640" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="note_weather" value="Note: weather_alerts existe mais le modele actuel montre une relation encore inachevee. Le modele cible recommande au minimum region_id -&gt; regions.id, et optionnellement crop_id -&gt; crops.id et user_id -&gt; profiles.id." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="640" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="1..1" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="auth_users" target="profiles">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="1..*" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="profiles" target="crops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="1..*" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="profiles" target="reports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="1..*" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="profiles" target="notifications">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="1..*" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="crop_types" target="crops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="1..1" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="crops" target="crop_plans">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="1..*" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="regions" target="crop_region_suitability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="1..*" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;" edge="1" parent="1" source="regions" target="climate_data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="targets" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="regions" target="weather_alerts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="may concern" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="crops" target="weather_alerts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="may target" style="endArrow=block;html=1;rounded=0;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="profiles" target="weather_alerts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_stats" target="crops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_stats" target="reports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_stats" target="weather_alerts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_users" target="profiles">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_users" target="reports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_crops" target="crops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="depends on" style="endArrow=open;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="admin_reports" target="reports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="sequence-diagram" name="Sequence Diagram">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="seqtitle" value="Agrosmart UML - Sequence Diagram (Login, Add Crop, Farmer Dashboard)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_user" value="User / Farmer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline_app" value="apps/app" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="180" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline_authctx" value="AuthContext" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="360" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline_api" value="backend API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="540" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline_service" value="Services / Controllers" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="720" y="90" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline_auth" value="Supabase Auth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="950" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline_db" value="Supabase DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="line_app" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="10" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="line_authctx" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="140" width="10" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="line_api" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="140" width="10" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="line_service" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="795" y="140" width="10" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="line_auth" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="140" width="10" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="line_db" style="shape=line;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="140" width="10" height="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="section_login" value="Sequence 1: Login" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="submit credentials" style="endArrow=block;html=1;" edge="1" parent="1" source="actor_user" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="login(email, password)" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_app" target="lifeline_authctx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="POST /auth/login" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_authctx" target="lifeline_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="login()" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="signInWithPassword" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m6" value="session + user" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="lifeline_auth" target="lifeline_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" value="success response" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_authctx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m8" value="store agro_token + agro_user" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="lifeline_authctx" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="section_addcrop" value="Sequence 2: Add Crop" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="430" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m9" value="open Add Crop page" style="endArrow=block;html=1;" edge="1" parent="1" source="actor_user" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m10" value="GET /crops/types" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_app" target="lifeline_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m11" value="verify token" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m12" value="read crop_types" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m13" value="display suggestions" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m14" value="submit crop form" style="endArrow=block;html=1;" edge="1" parent="1" source="actor_user" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m15" value="POST /crops" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_app" target="lifeline_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m16" value="getOrCreateCropType" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m17" value="SELECT/INSERT crop_types" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m18" value="validateCropSuitability" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m19" value="read regions / suitability / climate" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m20" value="INSERT crops" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m21" value="generateCropPlan" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m22" value="read crop + crop_types / insert crop_plans" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m23" value="crop + suitability + plan" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="lifeline_api" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="section_farmerdash" value="Sequence 3: Farmer Dashboard Load" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="830" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m24" value="open dashboard" style="endArrow=block;html=1;" edge="1" parent="1" source="actor_user" target="lifeline_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m25" value="GET /crops" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_app" target="lifeline_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m26" value="GET /weather/alerts" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_app" target="lifeline_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m27" value="GET /crop-plans" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_app" target="lifeline_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m28" value="read user crops" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m29" value="read weather_alerts" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m30" value="read crop_plans" style="endArrow=block;html=1;" edge="1" parent="1" source="lifeline_service" target="lifeline_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m31" value="render dashboard cards" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="lifeline_app" target="actor_user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -2,15 +2,24 @@
   "name": "AgroSmart",
   "short_name": "AgroSmart",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
+  "description": "AgroSmart helps farmers manage crops, recommendations, weather, and community updates in one place.",
   "background_color": "#f6f8f8",
   "theme_color": "#134E5E",
   "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
     {
       "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "categories": ["productivity", "utilities", "business"]
 }

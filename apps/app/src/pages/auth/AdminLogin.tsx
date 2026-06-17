@@ -18,8 +18,10 @@ const AdminLogin: React.FC = () => {
     setError('');
 
     try {
-      await login(email, password, 'admin');
-      navigate('/admin/dashboard');
+      const resolvedUser = await login(email, password, 'admin');
+      navigate(resolvedUser.role === 'admin' ? '/admin/dashboard' : '/role-selection', {
+        replace: true,
+      });
     } catch (err) {
       setError('Identifiants incorrects');
     } finally {

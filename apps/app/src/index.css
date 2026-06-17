@@ -8,3 +8,53 @@
   --color-background-dark: #121d20;
   --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif;
 }
+
+:root {
+  --app-background: #f6f8f8;
+  --app-surface: #f6f8f8;
+  --app-card: #ffffff;
+  --app-text: #0f172a;
+  --app-muted: #64748b;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: var(--app-background);
+  color: var(--app-text);
+}
+
+html.theme-dark {
+  --app-background: #0f1719;
+  --app-surface: #122024;
+  --app-card: #18292d;
+  --app-text: #e7f0f2;
+  --app-muted: #9fb1b7;
+}
+
+html.theme-dark body {
+  background: var(--app-background);
+  color: var(--app-text);
+}
+
+html.theme-dark .bg-white {
+  background-color: var(--app-card) !important;
+}
+
+html.theme-dark .text-slate-900 {
+  color: var(--app-text) !important;
+}
+
+html.theme-dark .text-slate-700,
+html.theme-dark .text-slate-600,
+html.theme-dark .text-slate-500,
+html.theme-dark .text-slate-400 {
+  color: var(--app-muted) !important;
+}
+
+html.theme-dark .border-slate-200,
+html.theme-dark .border-primary\/10,
+html.theme-dark .border-primary\/5 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}

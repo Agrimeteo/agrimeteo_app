@@ -29,7 +29,7 @@ const Onboarding: React.FC = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      navigate('/role-selection');
+      navigate('/login');
     }
   };
 
@@ -39,7 +39,7 @@ const Onboarding: React.FC = () => {
         <div className="w-12" />
         <h2 className="text-primary text-lg font-bold">AgroSmart</h2>
         <button 
-          onClick={() => navigate('/role-selection')}
+          onClick={() => navigate('/login')}
           className="text-sm font-medium text-primary/70 hover:text-primary"
         >
           Skip

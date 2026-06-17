@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Save, Camera, User, MapPin, Mail, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../services/api';
 
@@ -9,6 +10,8 @@ const EditProfile: React.FC = () => {
   const navigate = useNavigate();
   const { user, updateUser } = useAuth();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const hasLoadedProfileRef = useRef(false);
+  const hasUserEditedRef = useRef(false);
   const [formData, setFormData] = useState({
     name: user?.name || '',
     email: user?.email || '',
@@ -22,31 +25,38 @@ const EditProfile: React.FC = () => {
 
   useEffect(() => {
     const loadProfile = async () => {
+      if (hasLoadedProfileRef.current) {
+        return;
+      }
+
       try {
         const response = await api.get('/profile');
         const profile = response.data.data;
 
-        setFormData({
-          name: profile?.full_name || user?.name || '',
-          email: profile?.email || user?.email || '',
-          phone: profile?.phone || '',
-          location: profile?.location || '',
-          bio: profile?.bio || '',
-          avatar: profile?.avatar_url || user?.avatar || '',
-        });
+        if (!hasUserEditedRef.current) {
+          setFormData({
+            name: profile?.full_name || user?.name || '',
+            email: profile?.email || user?.email || '',
+            phone: profile?.phone || '',
+            location: profile?.location || '',
+            bio: profile?.bio || '',
+            avatar: profile?.avatar_url || user?.avatar || '',
+          });
+        }
 
         updateUser({
           name: profile?.full_name || user?.name || '',
           email: profile?.email || user?.email || '',
           avatar: profile?.avatar_url || user?.avatar || '',
         });
+        hasLoadedProfileRef.current = true;
       } catch (error) {
         console.error('Failed to load profile:', error);
       }
     };
 
-    loadProfile();
-  }, [updateUser, user?.avatar, user?.email, user?.name]);
+    void loadProfile();
+  }, [updateUser, user?.avatar, user?.email, user?.id, user?.name]);
 
   const handleSubmit = async (e?: React.FormEvent) => {
     e?.preventDefault();
@@ -71,7 +81,10 @@ const EditProfile: React.FC = () => {
       alert('Profile updated successfully!');
       navigate('/profile');
     } catch (error) {
-      alert('Failed to update profile');
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.error || error.message
+        : 'Failed to update profile';
+      alert(message);
       console.error('Profile update error:', error);
     } finally {
       setIsLoading(false);
@@ -79,6 +92,7 @@ const EditProfile: React.FC = () => {
   };
 
   const handleInputChange = (field: keyof typeof formData, value: string) => {
+    hasUserEditedRef.current = true;
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -90,6 +104,7 @@ const EditProfile: React.FC = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    hasUserEditedRef.current = true;
     const previewUrl = URL.createObjectURL(file);
     setFormData((prev) => ({ ...prev, avatar: previewUrl }));
     setIsUploadingAvatar(true);
@@ -110,7 +125,10 @@ const EditProfile: React.FC = () => {
         updateUser({ avatar: avatarUrl });
       }
     } catch (error) {
-      alert('Failed to upload avatar');
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.error || error.message
+        : 'Failed to upload avatar';
+      alert(message);
       console.error('Avatar upload error:', error);
       setFormData((prev) => ({ ...prev, avatar: user?.avatar || '' }));
     } finally {

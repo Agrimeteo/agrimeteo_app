@@ -1,4 +1,5 @@
-import { ChartIcon, LeafIcon, MailIcon, MapPinIcon, PhoneIcon, ShareIcon } from './Icons';
+import { LeafIcon, MailIcon, MapPinIcon, PhoneIcon } from './Icons';
+import { getAppUrl } from '../lib/appLinks';
 
 export function Footer() {
   return (
@@ -10,64 +11,38 @@ export function Footer() {
               <LeafIcon className="h-6 w-6" />
             </div>
             <div>
-              <div className="text-lg font-extrabold">Agrimeteo</div>
-              <div className="text-sm text-slate-400">Smart weather and crop support for farmers</div>
+              <div className="text-lg font-extrabold">AgroSmart</div>
+              <div className="text-sm text-slate-400">Weather, diagnosis, and crop support in one product</div>
             </div>
           </div>
           <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">
-            Empowering the future of agriculture in Cameroon through innovation,
-            accessibility, and technology.
+            Built to help farmers in Cameroon work with better timing, clearer recommendations, and a
+            more practical view of what should happen next.
           </p>
-          <div className="mt-6 flex gap-4">
-            <a
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-colors hover:bg-[var(--color-primary)]"
-              href="#"
-            >
-              <ChartIcon className="h-4 w-4" />
-            </a>
-            <a
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-colors hover:bg-[var(--color-primary)]"
-              href="#"
-            >
-              <ShareIcon className="h-4 w-4" />
-            </a>
-            <a
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 transition-colors hover:bg-[var(--color-primary)]"
-              href="#"
-            >
-              <MailIcon className="h-4 w-4" />
-            </a>
-          </div>
         </div>
 
         <div>
-          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">
-            Company
-          </div>
-          <div className="mt-5 space-y-3 text-sm text-slate-300 flex flex-col">
-            <a href="#">About Us</a>
-            <a href="#">Our Mission</a>
-            <a href="#">Careers</a>
-            <a href="#">Blog</a>
-          </div>
-        </div>
-
-        <div>
-          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">
-            Product
-          </div>
-          <div className="mt-5 space-y-3 text-sm text-slate-300 flex flex-col">
+          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">Explore</div>
+          <div className="mt-5 flex flex-col space-y-3 text-sm text-slate-300">
             <a href="#features">Features</a>
-            <a href="#">Pricing</a>
-            <a href="#">Success Stories</a>
-            <a href="#">Help Center</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#app-preview">Product preview</a>
+            <a href="#launch">Launch</a>
           </div>
         </div>
 
         <div>
-          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">
-            Contact
+          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">Product</div>
+          <div className="mt-5 flex flex-col space-y-3 text-sm text-slate-300">
+            <a href={getAppUrl('/login')}>Sign in</a>
+            <a href={getAppUrl('/register')}>Create account</a>
+            <a href={getAppUrl('/weather')}>Weather</a>
+            <a href={getAppUrl('/community')}>Community</a>
           </div>
+        </div>
+
+        <div>
+          <div className="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">Contact</div>
           <div className="mt-5 space-y-3 text-sm text-slate-300">
             <div className="flex items-center gap-3">
               <MapPinIcon className="h-4 w-4 text-[var(--color-secondary)]" />
@@ -75,17 +50,17 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <MailIcon className="h-4 w-4 text-[var(--color-secondary)]" />
-              <span>hello@agrimeteo.cm</span>
+              <span>contact@agrosmart.cm</span>
             </div>
             <div className="flex items-center gap-3">
               <PhoneIcon className="h-4 w-4 text-[var(--color-secondary)]" />
-              <span>+237 600 000 000</span>
+              <span>+237 672 170 259</span>
             </div>
           </div>
         </div>
       </div>
       <div className="mx-auto mt-8 max-w-7xl border-t border-slate-800 px-6 pt-8 text-center text-xs text-slate-500">
-        <p>© 2024 Agrimeteo Technologies. All rights reserved. Designed for Cameroonian Farmers.</p>
+        <p>© 2026 AgroSmart Technologies. Built for Cameroonian farmers and modern field operations.</p>
       </div>
     </footer>
   );

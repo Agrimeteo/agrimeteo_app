@@ -5,5 +5,6 @@ import { authMiddleware } from '../middlewares/authMiddleware.js';
 const router = Router();
 
 router.use(authMiddleware);
+router.get('/history', chatController.getHistory as any);
 router.post('/', chatController.sendChat as any);
 export default router;

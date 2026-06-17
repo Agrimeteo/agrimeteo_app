@@ -1,17 +1,1 @@
-{
-    "root":
-    [
-        "./src/app.tsx",
-        "./src/main.tsx",
-        "./src/components/cta.tsx",
-        "./src/components/features.tsx",
-        "./src/components/footer.tsx",
-        "./src/components/hero.tsx",
-        "./src/components/howitworks.tsx",
-        "./src/components/icons.tsx",
-        "./src/components/navbar.tsx",
-        "./src/components/preview.tsx",
-        "./src/components/whyagrosmart.tsx"
-    ],
-    "version":"5.9.3"
-}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/cta.tsx","./src/components/features.tsx","./src/components/footer.tsx","./src/components/hero.tsx","./src/components/howitworks.tsx","./src/components/icons.tsx","./src/components/navbar.tsx","./src/components/preview.tsx","./src/components/screenshotplaceholder.tsx","./src/components/truststrip.tsx","./src/components/whyagrosmart.tsx","./src/lib/applinks.ts"],"version":"5.9.3"}

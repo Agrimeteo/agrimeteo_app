@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, Bell, X, Home, Sprout, CloudSun, MessageSquare, User, Settings, HelpCircle, BookOpen } from 'lucide-react';
+import { Menu, Bell, X, Home, Sprout, CloudSun, MessageSquare, User, Settings, HelpCircle, BookOpen, Users } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { usePermissions } from '../context/PermissionsContext';
 import { useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
@@ -10,19 +11,21 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ title = "AgroSmart", subtitle, showBack }) => {
-  const { user } = useAuth();
+  const { user, role } = useAuth();
+  const { hasPermission } = usePermissions();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
     { path: '/', icon: Home, label: 'Dashboard' },
-    { path: '/crops', icon: Sprout, label: 'Crops' },
+    ...(hasPermission('crops.read') ? [{ path: '/crops', icon: Sprout, label: 'Crops' }] : []),
     { path: '/weather', icon: CloudSun, label: 'Weather' },
     { path: '/chatbot', icon: MessageSquare, label: 'AgroBot' },
+    { path: '/community', icon: Users, label: 'Community' },
     { path: '/profile', icon: User, label: 'Profile' },
-    { path: '/settings', icon: Settings, label: 'Settings' },
+    ...(hasPermission('settings.read') ? [{ path: '/settings', icon: Settings, label: 'Settings' }] : []),
     { path: '/help', icon: HelpCircle, label: 'Help' },
-    { path: '/tutorials', icon: BookOpen, label: 'Tutorials' },
+    ...(role === 'beginner' ? [{ path: '/tutorials', icon: BookOpen, label: 'Tutorials' }] : []),
   ];
 
   return (
@@ -105,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = ({ title = "AgroSmart", subtitle, showBack
             )}
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold truncate">{user?.name || 'User'}</p>
-              <p className="text-xs text-slate-500 truncate">Farmer</p>
+              <p className="text-xs text-slate-500 truncate">{role === 'beginner' ? 'Beginner' : role === 'admin' ? 'Admin' : 'Farmer'}</p>
             </div>
           </div>
         </div>

@@ -3,6 +3,15 @@ import * as chatService from '../services/chatService.js';
 
 type AuthRequest = Request & { user: { id: string } };
 
+export const getHistory = async (req: AuthRequest, res: Response) => {
+    try {
+        const result = await chatService.getChatHistory(req.user.id);
+        res.json({ success: true, data: result });
+    } catch (error) {
+        res.status(400).json({ success: false, error: (error as Error).message });
+    }
+};
+
 export const sendChat = async (req: AuthRequest, res: Response) => {
     try {
         const { message } = req.body;

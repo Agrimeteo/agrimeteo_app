@@ -42,3 +42,19 @@ export interface AdminReport {
   created_at: string;
 }
 
+export interface AdminWeatherAlert {
+  id: string;
+  user_id: string | null;
+  user_name: string;
+  crop_id: string | null;
+  crop_name: string;
+  region_id: string | null;
+  region_name: string;
+  location: string;
+  type: string;
+  security: string;
+  description: string;
+  valid_until: string | null;
+  created_at: string;
+}
+
