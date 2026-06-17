@@ -11,17 +11,41 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:5173',
-  'http://localhost:5174',
+const rawConfiguredOrigins = [
   process.env.CORS_ORIGIN,
-].filter(Boolean);
+  process.env.CORS_ORIGINS,
+]
+  .filter(Boolean)
+  .flatMap((value) => value!.split(','))
+  .map((value) => value.trim())
+  .filter(Boolean);
+
+const defaultOrigins = ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5174'];
+const exactAllowedOrigins = new Set(
+  [...defaultOrigins, ...rawConfiguredOrigins.filter((value) => !value.startsWith('*.') && !value.startsWith('.'))],
+);
+const suffixAllowedOrigins = rawConfiguredOrigins
+  .filter((value) => value.startsWith('*.') || value.startsWith('.'))
+  .map((value) => (value.startsWith('*.') ? value.slice(1) : value));
+
+const isOriginAllowed = (origin: string) => {
+  if (exactAllowedOrigins.has(origin)) {
+    return true;
+  }
+
+  return suffixAllowedOrigins.some((suffix) => {
+    try {
+      return new URL(origin).hostname.endsWith(suffix);
+    } catch {
+      return false;
+    }
+  });
+};
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || isOriginAllowed(origin)) {
         callback(null, true);
         return;
       }

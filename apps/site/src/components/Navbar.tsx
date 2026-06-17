@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ArrowRightIcon, LoginIcon } from './Icons';
 import { getAppUrl } from '../lib/appLinks';
 
 const navItems = [
@@ -42,10 +43,12 @@ export function Navbar() {
 
           <div className="hidden items-center gap-3 md:flex">
             <a className="nav-link-button" href={getAppUrl('/login')}>
+              <LoginIcon className="h-4 w-4" />
               Sign in
             </a>
             <a className="nav-cta" href={getAppUrl('/register')}>
-              Launch AgroSmart
+              <ArrowRightIcon className="h-4 w-4" />
+              Get started
             </a>
           </div>
 
@@ -85,10 +88,12 @@ export function Navbar() {
 
         <div className="mt-4 grid gap-3">
           <a className="button-secondary w-full" href={getAppUrl('/login')} onClick={() => setMenuOpen(false)}>
+            <LoginIcon className="h-4 w-4" />
             Sign in
           </a>
           <a className="button-primary w-full" href={getAppUrl('/register')} onClick={() => setMenuOpen(false)}>
-            Launch AgroSmart
+            <ArrowRightIcon className="h-4 w-4" />
+            Get started
           </a>
         </div>
       </div>

@@ -136,3 +136,22 @@ export function PlayStoreIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function ArrowRightIcon(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </BaseIcon>
+  );
+}
+
+export function LoginIcon(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4" />
+      <path d="M10 17l5-5-5-5" />
+      <path d="M15 12H4" />
+    </BaseIcon>
+  );
+}

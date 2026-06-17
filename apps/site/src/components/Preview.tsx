@@ -1,4 +1,5 @@
 import { ScreenshotPlaceholder } from './ScreenshotPlaceholder';
+import { ArrowRightIcon, LoginIcon } from './Icons';
 import { getAppUrl } from '../lib/appLinks';
 
 const previewCards = [
@@ -35,10 +36,12 @@ export function Preview() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a className="button-primary" href={getAppUrl('/login')}>
-              Open login
+              <LoginIcon className="h-4 w-4" />
+              Sign in
             </a>
             <a className="button-secondary" href={getAppUrl('/register')}>
-              Create account
+              <ArrowRightIcon className="h-4 w-4" />
+              Get started
             </a>
           </div>
         </div>

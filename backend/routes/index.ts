@@ -13,6 +13,10 @@ import permissionRoutes from './permissionRoutes.js';
 
 const router = Router();
 
+router.get('/health', (_req, res) => {
+  res.json({ success: true, status: 'ok' });
+});
+
 router.use('/auth', authRoutes);
 router.use('/profile', profileRoutes);
 router.use('/crops', cropRoutes);

@@ -22,11 +22,11 @@ export function CTA() {
             </a>
             <a className="button-secondary" href={getAppUrl('/register')}>
               <PlayIcon className="h-4 w-4" />
-              Create account
+              Get started
             </a>
             <a className="button-secondary" href={getAppUrl('/farmer-dashboard')}>
               <DashboardIcon className="h-4 w-4" />
-              Open dashboard
+              Dashboard
             </a>
           </div>
 
