@@ -26,6 +26,15 @@ const formatContext = (messages: ChatMessageRecord[]) =>
     .map((entry) => `${entry.sender === 'user' ? 'Utilisateur' : 'AgroAI'}: ${entry.message}`)
     .join('\n');
 
+const buildPlantDiagnosisInstruction = () => `
+Tu es AgroAI, un assistant agronome specialise dans le diagnostic des cultures.
+1. Reponds en francais clair et pratique.
+2. Analyse l'image et la description pour identifier maladies, ravageurs ou carences probables.
+3. Structure la reponse en sections courtes : Observation, Diagnostic probable, Actions immediates, Prevention.
+4. Si tu n'es pas sur, dis-le clairement et propose une verification terrain simple.
+5. Donne des conseils adaptes a des agriculteurs du Cameroun.
+`.trim();
+
 export const getChatHistory = async (userId: string) => {
   const { data, error } = await supabaseServiceClient
     .from('chat_messages')
@@ -101,5 +110,45 @@ export const sendChat = async (userId: string, message: string) => {
   return {
     response: reply,
     message: aiMessage as ChatMessageRecord,
+  };
+};
+
+export const diagnosePlant = async (userId: string, base64Image: string, description?: string) => {
+  if (!apiKey) {
+    throw new Error('Gemini API key is not configured on the server.');
+  }
+
+  if (!userId) {
+    throw new Error('Authenticated user required');
+  }
+
+  const normalizedImage = base64Image.trim();
+  if (!normalizedImage) {
+    throw new Error('Plant image is required');
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: {
+      parts: [
+        {
+          inlineData: {
+            mimeType: 'image/jpeg',
+            data: normalizedImage.split(',')[1] || normalizedImage,
+          },
+        },
+        {
+          text: `Description du cultivateur: ${description?.trim() || 'Aucune description fournie.'}`,
+        },
+      ],
+    },
+    config: {
+      systemInstruction: buildPlantDiagnosisInstruction(),
+    },
+  });
+
+  return {
+    diagnosis: response.text || 'Aucun diagnostic n’a pu etre genere.',
   };
 };

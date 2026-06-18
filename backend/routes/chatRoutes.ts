@@ -7,4 +7,5 @@ const router = Router();
 router.use(authMiddleware);
 router.get('/history', chatController.getHistory as any);
 router.post('/', chatController.sendChat as any);
+router.post('/diagnosis/plant', chatController.diagnosePlant as any);
 export default router;

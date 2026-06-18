@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Camera, Upload, Send, Info, CheckCircle2 } from 'lucide-react';
 
-import { analyzePlantImage } from '../../services/geminiService';
+import { analyzePlantImage } from '../../services/plantDiagnosisService';
 import ReactMarkdown from 'react-markdown';
 
 const PlantDiagnosis: React.FC = () => {

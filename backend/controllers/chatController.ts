@@ -23,3 +23,18 @@ export const sendChat = async (req: AuthRequest, res: Response) => {
     }
 };
 
+export const diagnosePlant = async (req: AuthRequest, res: Response) => {
+    try {
+        const { image, description } = req.body;
+
+        if (!image) {
+            throw new Error('Plant image is required');
+        }
+
+        const result = await chatService.diagnosePlant(req.user.id, image, description);
+        res.json({ success: true, data: result });
+    } catch (error) {
+        res.status(400).json({ success: false, error: (error as Error).message });
+    }
+};
+
