@@ -28,8 +28,16 @@ Le projet contient deja [render.yaml](../render.yaml).
 2. Choisir **Blueprint** ou **New Web Service**
 3. Si tu utilises le `render.yaml`, Render pre-remplira :
    - `rootDir: backend`
-   - `buildCommand: npm install && npm run build`
+   - `buildCommand: npm install --include=dev && npm run build`
    - `startCommand: npm start`
+
+### Important pour Render
+
+Comme le backend est compile avec TypeScript, Render doit installer aussi les `devDependencies` pendant le build.
+
+Si tu crees le service manuellement avec **New Web Service**, mets bien :
+
+- `Build Command` : `npm install --include=dev && npm run build`
 
 ### Variables Render a renseigner
 
@@ -70,7 +78,6 @@ Le projet contient deja [apps/app/vercel.json](../apps/app/vercel.json).
 - `VITE_API_URL=https://ton-backend.onrender.com/api/v1`
 - `VITE_SUPABASE_URL=https://ton-projet.supabase.co`
 - `VITE_SUPABASE_ANON_KEY=...`
-- `GEMINI_API_KEY=...`
 
 ### Important
 
